@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        /* 0-1-0 */
+        width: 100px;
+        height: 100px;
+      }
+
+      div#box {
+        /* 1-0-1 */
+        background-color: violet;
+      }
+
+      html body div#box.box {
+        /* 1-1-3 */
+        background-color: orange;
+      }
+
+      #box {
+        /* 1-0-0 */
+        background-color: green;
+      }
+
+      div {
+        /* 0-0-1 */
+        background-color: yellow;
+        color: black;
+      }
+
+      .box {
+        background-color: blue;
+      }
+      .box {
+        background-color: red;
+      }
+      .box:hover {
+        background-color: yellow !important;
+        color: blue;
+      }
+    </style>
+
+    <link rel="stylesheet" href="style2.css" />
+  </head>
+  <body>
+    <div id="box" class="box" style="background-color: aqua">Hello</div>
+  </body>
+</html>
