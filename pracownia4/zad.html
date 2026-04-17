@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz Kontaktowy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .checkbox-container input {
+            width: auto;
+            margin-right: 10px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #6e8efb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #a777e3;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Formularz Kontaktowy</h2>
+        <form id="contactForm">
+            <label for="firstName">Imię*</label>
+            <input type="text" id="firstName" required>
+
+            <label for="lastName">Nazwisko*</label>
+            <input type="text" id="lastName" required>
+
+            <label for="email">E-mail*</label>
+            <input type="email" id="email" required>
+            <span class="error" id="emailError"></span>
+
+            <label for="phone">Telefon</label>
+            <input type="tel" id="phone">
+            <span class="error" id="phoneError"></span>
+
+            <div class="checkbox-container">
+                <input type="checkbox" id="newsletter">
+                <label for="newsletter">Zapisz do newslettera</label>
+            </div>
+
+            <label for="contactReason">Powód kontaktu*</label>
+            <select id="contactReason" required>
+                <option value="">Wybierz opcję</option>
+                <option value="support">Wsparcie</option>
+                <option value="sales">Sprzedaż</option>
+                <option value="other">Inne</option>
+            </select>
+
+            <label for="message">Wiadomość*</label>
+            <textarea id="message" rows="4" required></textarea>
+
+            <button type="submit">Wyślij</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let email = document.getElementById("email").value;
+            let phone = document.getElementById("phone").value;
+            let emailError = document.getElementById("emailError");
+            let phoneError = document.getElementById("phoneError");
+
+            emailError.textContent = "";
+            phoneError.textContent = "";
+
+            let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            let phonePattern = /^[0-9]{9,12}$/;
+
+            if (!emailPattern.test(email)) {
+                emailError.textContent = "Niepoprawny adres e-mail";
+            }
+
+            if (phone && !phonePattern.test(phone)) {
+                phoneError.textContent = "Niepoprawny numer telefonu";
+            }
+
+            if (emailPattern.test(email) && (phone === "" || phonePattern.test(phone))) {
+                alert("Formularz wysłany!");
+                this.submit();
+            }
+        });
+    </script>
+</body>
+</html>

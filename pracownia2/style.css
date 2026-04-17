@@ -44,7 +44,7 @@ html p {
 #challenge3 li a {
   color: darkblue;
 }
-#challenge3 a:visited {
+#challenge3 li a:visited {
   color: lightslategray
 }
 #challenge3 a:link {
@@ -68,4 +68,3 @@ html p {
 #challenge5 #ariel > figcaption {
   font-size: 0.7rem;
 }
-

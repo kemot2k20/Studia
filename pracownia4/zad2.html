@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz Kontaktowy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .checkbox-container input {
+            width: auto;
+            margin-right: 10px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #6e8efb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #a777e3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Formularz Kontaktowy</h2>
+        <form>
+            <label for="firstName">Imię*</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Nazwisko*</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="email">E-mail*</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Telefon</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{9,12}" title="Podaj numer telefonu (9-12 cyfr)">
+
+            <div class="checkbox-container">
+                <input type="checkbox" id="newsletter" name="newsletter">
+                <label for="newsletter">Zapisz do newslettera</label>
+            </div>
+
+            <label for="contactReason">Powód kontaktu*</label>
+            <select id="contactReason" name="contactReason" required>
+                <option value="">Wybierz opcję</option>
+                <option value="support">Wsparcie</option>
+                <option value="sales">Sprzedaż</option>
+                <option value="other">Inne</option>
+            </select>
+
+            <label for="message">Wiadomość*</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Wyślij</button>
+        </form>
+    </div>
+</body>
+</html>
