@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>client</title>
+  </head>
+  <body>
+    <div id="app">
+
+      <h1>Multiball Pong</h1>
+
+      <div id="lobbyScreen">
+
+        <div id="lobbyControls">
+          <input type="text" id="usernameInput" placeholder="Nickname" />
+          <button id="createRoomBtn">Create Room</button>
+        </div>
+
+        <div class="roomListSection">
+          <h3>Rooms Available:</h3>
+          <div id="roomsList" style="display: flex; flex-direction: column; gap: 10px;"></div>
+        </div>
+        
+        <p id="statusMsg" style="color: yellow;"></p>
+      </div>
+
+      <div id="waitScreen" style="display: none;">
+        <h2>Waiting for opponent...</h2>
+        <div class="loader"></div>
+        <p>Pokój: <span id="currentRoomIdDisplay"></span></p>
+        <button id="leaveLobbyBtn" class="danger-btn">LEAVE</button>
+      </div>
+
+      <div id="gameScreen" style="display: none;">
+        <div id="countdownDisplay">3</div>
+        <canvas id="gameCanvas" width="1" height="1"></canvas>
+      </div>
+
+      <div id="gameOverScreen" style="display: none;">
+        <h2 id="winnerText">WINNER: ...</h2>
+        <div class="final-score">
+          SCORE: <span id="finalScoreDisplay">0 : 0</span>
+        </div>
+        
+        <div class="game-over-buttons">
+          <button id="rematchBtn" class="primary-btn">
+            REMATCH (<span id="rematchCount">0/2</span>)
+          </button>
+          
+          <button id="exitToMenuBtn" class="danger-btn">
+            LEAVE
+          </button>
+        </div>
+      </div>
+
+    </div>
+    
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
