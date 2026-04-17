@@ -1,0 +1,70 @@
+* {
+  background-color: lightblue;
+  color: darkblue;
+  font-family: "Dancing Script", cursive;
+}
+
+html body {
+  font-size: 1rem;
+}
+html h1 {
+  font-weight: 800;
+  text-align: center;
+}
+html p {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
+#challenge2 > #boxes > :nth-child(1) {
+  background-color: lightgreen;
+  border-radius: 100%;
+}
+#challenge2 > #boxes > :nth-child(2) {
+  background-color: lightslategray;
+  border-color: black;
+  border-style: solid;
+  border-width: 10px;
+  box-sizing: border-box;
+}
+#challenge2 > #boxes > :nth-child(3) {
+  border-top: 50px solid white;
+  box-sizing: border-box;
+}
+#challenge2 > #boxes > :nth-child(1):hover {
+  background-color: lightpink;
+}
+#challenge2 > #boxes > :nth-child(2):hover {
+  background-color: black;
+  border-color: lightslategray;
+}
+#challenge2 > #boxes > :nth-child(3):hover {
+  background-color: white;
+  border-top: 50px solid red;
+}
+#challenge3 li a {
+  color: darkblue;
+}
+#challenge3 li a:visited {
+  color: lightslategray
+}
+#challenge3 a:link {
+  text-decoration: underline;
+}
+#challenge3 a:hover {
+  color: red;
+  font-weight: 900;
+}
+#challenge3 li::marker {
+  content: "🍔";
+}
+#challenge4 p:empty, #challenge4 input:disabled, #challenge4 a[href*="recipe"] {
+  display: none;
+}
+#challenge5 #ariel > img {
+  width: 70vw;
+  min-width: 100px;
+  max-width: 500px;
+}
+#challenge5 #ariel > figcaption {
+  font-size: 0.7rem;
+}

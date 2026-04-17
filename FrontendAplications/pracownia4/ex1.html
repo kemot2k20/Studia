@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input:invalid {
+        border: 2px solid red;
+      }
+
+      /*       input:invalid + label {
+        color: red;
+      } */
+
+      .validation-info {
+        display: none;
+      }
+
+      input:invalid + .validation-info {
+        display: block;
+      }
+
+      label:has(input:invalid) {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <!--     <input type="text" />
+    <input type="number" />
+    <input type="date" />
+    <input type="file" /> -->
+
+    <!-- http://127.0.0.1:5500/L04/Lecture/forms.html?name=Hello&email=&password=asdas&gender=male&number=two&cars=mercedes -->
+
+    <form method="post">
+      <label for="name">Name*:</label>
+      <input
+        type="text"
+        placeholder="Hello"
+        id="name"
+        name="name"
+        autocomplete="name"
+        required
+        minlength="3"
+        maxlength="10"
+        pattern="[A-Za-z]+"
+      />
+
+      <label>
+        Email*:
+        <input
+          type="email"
+          placeholder="Hello"
+          name="email"
+          autocomplete="email"
+          required
+        />
+        <span class="validation-info">Email is required</span>
+      </label>
+
+      <label>
+        Password:
+        <input
+          type="password"
+          name="password"
+          autocomplete="current-password"
+        />
+      </label>
+
+      <label>
+        Accept cookies
+        <input type="checkbox" />
+      </label>
+
+      <br />
+      <label>
+        Male
+        <input type="radio" name="gender" value="male" required />
+      </label>
+      <label>
+        Female
+        <input type="radio" name="gender" value="female" required />
+      </label>
+      <label>
+        Other
+        <input type="radio" name="gender" value="other" required />
+      </label>
+      <br />
+      <label>
+        One
+        <input type="radio" name="number" value="one" />
+      </label>
+      <label>
+        Two
+        <input type="radio" name="number" value="two" />
+      </label>
+      <label>
+        Three
+        <input type="radio" name="number" value="three" />
+      </label>
+
+      <label>
+        <select name="cars" id="cars">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </select>
+      </label>
+
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
